@@ -9,7 +9,7 @@ public class Scenes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hat = GameObject.FindObjectOfType<Hat>();
+        hat = FindObjectOfType<Hat>();
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class Scenes : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             
-            GameSettings settings = GameObject.FindObjectOfType<GameSettings>();
+            GameSettings settings = FindObjectOfType<GameSettings>();
             Destroy(settings.gameObject);
             SceneManager.LoadScene("MainMenu");
         }

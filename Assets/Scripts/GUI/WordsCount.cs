@@ -17,7 +17,7 @@ public class WordsCount : MonoBehaviour
     
     void Update()
     {
-        count = Hat.Length;
+        //count = Hat.Length;
         field.text = count.ToString();
     }
     

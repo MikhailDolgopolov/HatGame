@@ -25,7 +25,7 @@ public class ReturnWordButton : MonoBehaviour {
     public void AddScore() {
         wasPressed = true;
         myText.text = "Убрать" + s;
-        Hat.myHat.RemoveLastWord(firstPress);
+        //Hat.myHat.RemoveLastWord(firstPress);
         GamePlay.UpdateCurrentPlayersScore(1, firstPress);
         firstPress = wasUntouched = false;
     }
@@ -33,7 +33,7 @@ public class ReturnWordButton : MonoBehaviour {
     public void SubtractScore() {
         firstPress = wasPressed = wasUntouched = false;
         GamePlay.UpdateCurrentPlayersScore(-1);
-        Hat.myHat.PutWordBack();
+        //Hat.myHat.PutWordBack();
         myText.text = "Добавить" + s;
     }
 }

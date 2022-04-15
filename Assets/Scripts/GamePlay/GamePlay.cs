@@ -20,7 +20,7 @@ public class GamePlay : MonoBehaviour
     
     void Start()
     {
-        Hat.GameBegan();
+        //Hat.GameBegan();
         currentRound = 1;
         NextPlayers();
     }

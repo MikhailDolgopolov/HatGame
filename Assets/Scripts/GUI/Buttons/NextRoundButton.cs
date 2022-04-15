@@ -8,7 +8,7 @@ public class NextRoundButton : MonoBehaviour
     public void Action()
     {
         if (ReturnWordButton.wasUntouched) {
-            Hat.myHat.PutWordBack();
+            throw new NotImplementedException();
         }
         GamePlay.ResetRound();
     }

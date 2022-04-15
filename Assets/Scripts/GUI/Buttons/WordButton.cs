@@ -18,7 +18,7 @@ public class WordButton : MonoBehaviour
     
     public void ButtonAction()
     {
-        if (GamePlay.currentState == GamePlay.state.beginning)
+        /*if (GamePlay.currentState == GamePlay.state.beginning)
         {
             if (Hat.Length < Hat.wordsThreshold)
             {
@@ -39,14 +39,13 @@ public class WordButton : MonoBehaviour
                 GamePlay.UpdateCurrentPlayersScore(1);
                 GrabWord();
             }
-        }
+        }*/
     }
     public void Reset()
     {
         text.text = str;
     }
     void GrabWord() {
-        IWord n = Hat.myHat.GetWord();
-        text.text = n.GetString();
+        throw new NotImplementedException();
     }
 }

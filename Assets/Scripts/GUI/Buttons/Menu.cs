@@ -8,17 +8,16 @@ public class Menu : MonoBehaviour
 
     public void PlayGame()
     {
-        if (Hat.Length <= Hat.wordsThreshold)
+        /*if (Hat.Length <= Hat.wordsThreshold)
         {
             ToastMessages.ShowMessage("В шляпе недостаточно слов.");
             return;
         }
-        SceneManager.LoadScene("GameSetup");
+        SceneManager.LoadScene("GameSetup");*/
        
     }
 
     public void SwitchModes() {
-        Hat.useOnlineHat = !Hat.useOnlineHat;
-        Hat.SetupHat();
+        
     }
 }

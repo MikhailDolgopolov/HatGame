@@ -10,22 +10,20 @@ public class GUIManager : MonoBehaviour
 
     public delegate void GUIEvent();
 
-    public static event GUIEvent onTimerEnded;
-    
-    
-    void Start()
-    {
+    public event GUIEvent onTimerEnded;
+
+    public static GUIManager instance;
+    public void Start() {
+        instance = this;
         LastWordScreen.SetActive(false);
-        GamePlay.OnRoundStart += ShowTimer;
-        GamePlay.OnNewRound += ShowScheme;
-        GamePlay.OnRoundEnded += End;
+        
     }
-    void ShowTimer()
+    public void ShowTimer()
     {
         Scheme.SetActive(false);
         Timer.SetActive(true);
     }
-    void ShowScheme()
+    public void ShowScheme()
     {
         Scheme.SetActive(true);
         Timer.SetActive(false);
@@ -33,7 +31,7 @@ public class GUIManager : MonoBehaviour
     }
 
     
-    public void End()
+    public void EndRound()
     {
         LastWordScreen.SetActive(true);
         onTimerEnded?.Invoke();

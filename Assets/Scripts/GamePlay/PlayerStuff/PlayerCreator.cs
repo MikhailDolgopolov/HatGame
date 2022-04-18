@@ -23,7 +23,7 @@ public class PlayerCreator : MonoBehaviour
 
     public static void RemovePlayer() {
         if (playersCreated == 1) return;
-        GameSettings.RemovePlayer(playersCreated-1);
+        SettingsManager.instance.RemovePlayer(playersCreated-1);
         Destroy(PC.myRect.GetChild(playersCreated - 1).gameObject);
         playersCreated -= 1;
     }

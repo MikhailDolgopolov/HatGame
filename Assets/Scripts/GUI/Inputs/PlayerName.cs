@@ -14,6 +14,6 @@ public class PlayerName : MonoBehaviour {
     
     public void Change() {
         if (field == null) field = GetComponent<TMP_InputField>();
-        GameSettings.AddPlayer(index, field.text);
+        SettingsManager.instance.AddPlayer(index, field.text);
     }
 }

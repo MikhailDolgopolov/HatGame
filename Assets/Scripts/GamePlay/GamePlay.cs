@@ -1,43 +1,32 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GamePlay : MonoBehaviour
 {
     public static int currentRound;
-    public enum state { beginning, round, stop }
-    public static state currentState = state.beginning;
+   
     
     [HideInInspector]
     public static Player[] currentPlayers;
     public static int currentPlayersScore;
     private static int startingScore;
-
-    public delegate void gameEvent();
-    public static event gameEvent OnNewRound;
-    public static event gameEvent OnRoundStart;
-    public static event gameEvent OnRoundEnded;
-    public static event gameEvent OnGameEnded;
     
+
     void Start()
     {
-        //Hat.GameBegan();
         currentRound = 1;
         NextPlayers();
     }
     static void NextPlayers() {
-        currentPlayers = new Player[2]
-        {
-            GameSettings.players[GameSettings.pairs[currentRound-1, 0]], 
-            GameSettings.players[GameSettings.pairs[currentRound-1, 1]]
-        };
+        currentPlayers = SettingsManager.instance.NextPlayers(currentRound);
         currentPlayersScore = 0;
-        OnNewRound?.Invoke();
     }
     
     public static void UpdateCurrentPlayersScore(int inc) {
-        if (currentState == state.stop && currentPlayersScore >= startingScore && inc > 0) return;
+        if (currentPlayersScore >= startingScore && inc > 0) return;
         currentPlayersScore += inc;
-        if (currentState == state.round) startingScore = currentPlayersScore;
+        startingScore = currentPlayersScore;
     }
 
     public static void UpdateCurrentPlayersScore(int inc, bool ImSpecial) {
@@ -51,13 +40,13 @@ public class GamePlay : MonoBehaviour
     
     
     public static void StartRound() {
-        currentState = state.round;
-        OnRoundStart?.Invoke();
+        throw new NotImplementedException();
+        //currentState = state.round;
     }
     public static void EndRound() 
     {
-        currentState = state.stop;
-        OnRoundEnded?.Invoke();
+        throw new NotImplementedException();
+        //currentState = state.stop;
     }
     static void SetScore()
     {
@@ -68,19 +57,19 @@ public class GamePlay : MonoBehaviour
         }
     }
     public static void RoundsEnded() {
-        OnGameEnded?.Invoke();
-        GameSettings.SortPlayers();
+        SettingsManager.instance.SortPlayers();
         SceneManager.LoadScene("Results");
     }
     public static void ResetRound()
     {
         SetScore();
         currentRound += 1;
-        if (currentRound-1 == GameSettings.pairs.GetLength(0)) {
+        if (currentRound-1 == GameSettings.instance.numberOfRounds) {
             RoundsEnded();
             return;
         }
-        currentState = state.beginning;
+        //currentState = state.beginning;
+        throw new NotImplementedException();
         NextPlayers();
     }
 }

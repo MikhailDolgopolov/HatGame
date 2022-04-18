@@ -12,7 +12,7 @@ public class ReturnWordButton : MonoBehaviour {
     private static string s = " последнее слово";
 
     void Awake() {
-        GUIManager.onTimerEnded += Reset;
+        GUIManager.instance.onTimerEnded += Reset;
         myText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
         myButton = GetComponent<TwoStateButton>();
     }

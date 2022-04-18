@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HatStateMachine : MonoBehaviour
+public class HatStateMachine : StateMachine
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public void OnMainButtonPress() {
+        currentState.MainButtonPressed();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public int UpdateCurrentPlayersScore(int inc) {
+        return currentState.UpdateCurrentPlayersScore(inc);
     }
 }

@@ -13,11 +13,11 @@ public class WordButton : MonoBehaviour
     void Awake()
     {
         text = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        GamePlay.OnNewRound += Reset;
     }
     
     public void ButtonAction()
     {
+        throw new NotImplementedException();
         /*if (GamePlay.currentState == GamePlay.state.beginning)
         {
             if (Hat.Length < Hat.wordsThreshold)

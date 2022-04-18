@@ -19,11 +19,11 @@ public class WebData : MonoBehaviour {
         }
     }
 
-    public List<Word> freshWords;
+    public List<WebWord> freshWords;
     // Start is called before the first frame update
     void Start() {
         instance = this;
-        freshWords = new List<Word>();
+        freshWords = new List<WebWord>();
     }
 
     // Update is called once per frame

@@ -5,17 +5,17 @@ namespace Assets.Scripts.Web.Data {
     [Serializable]
     public class WordStorage {
         public int Id { get; set; }
-        public List<Word> Words { get; set; }
+        public List<WebWord> Words { get; set; }
         public string Keyword { get; set; }
         public User Author { get; set; }
         public DateTime CreatedOn;
 
         #region List Stuff
-        public IEnumerator<Word> GetEnumerator() {
+        public IEnumerator<WebWord> GetEnumerator() {
             return Words.GetEnumerator();
         }
         
-        public void Add(Word item) {
+        public void Add(WebWord item) {
             Words.Add(item);
         }
 
@@ -32,10 +32,10 @@ namespace Assets.Scripts.Web.Data {
         }
 
         public WordStorage() {
-            Words = new List<Word>();
+            Words = new List<WebWord>();
         }
 
-        public Word this[int index]
+        public WebWord this[int index]
         {
             get => Words[index];
             set => Words[index] = value;

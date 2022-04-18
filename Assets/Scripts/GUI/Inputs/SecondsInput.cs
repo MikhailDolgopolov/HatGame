@@ -18,10 +18,10 @@ public class SecondsInput : MonoBehaviour
     {
         string n = field.text;
         if (n == "") {
-            GameSettings.secondsPerRound = 30;
+            GameSettings.instance.secondsPerRound = 30;
             return;
         }
-        GameSettings.secondsPerRound = Int32.Parse(n);
+        GameSettings.instance.secondsPerRound = Int32.Parse(n);
         
     }
 }

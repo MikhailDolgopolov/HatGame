@@ -13,9 +13,7 @@ public class TimerCircle : MonoBehaviour
         get { return timer.time / timer.startTime; }
     }
     void Awake() {
-        timer = new Timer(GameSettings.secondsPerRound);
-        GamePlay.OnRoundStart += Begin;
-        GamePlay.OnRoundEnded += Reset;
+        timer = new Timer(GameSettings.instance.secondsPerRound);
         gameObject.SetActive(false);
     }
 
@@ -23,10 +21,7 @@ public class TimerCircle : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         timer.onTimeExpired += OnTimerEnd;
     }
-
-    void debug() {
-        Debug.Log("event");
-    }
+    
 
     public void Begin() {
         timer.Start();

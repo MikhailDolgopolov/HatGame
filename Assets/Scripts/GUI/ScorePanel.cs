@@ -12,12 +12,12 @@ public class ScorePanel : MonoBehaviour
     {
         startTransform = PlayerScore.GetComponent<RectTransform>() as RectTransform;
         myRect = gameObject.GetComponent<RectTransform>() as RectTransform;
-        myRect.sizeDelta = new Vector2(myRect.sizeDelta.x, (startTransform.sizeDelta.y + 7) * GameSettings.numberOfPlayers + 10f);
+        myRect.sizeDelta = new Vector2(myRect.sizeDelta.x, (startTransform.sizeDelta.y + 7) * GameSettings.instance.numberOfPlayers + 10f);
         SpawnScores();
     }
     void SpawnScores()
     {
-        for(int i = 0; i < GameSettings.numberOfPlayers; i++)
+        for(int i = 0; i < GameSettings.instance.numberOfPlayers; i++)
         {
             SpawnScore(i);
         }
@@ -28,6 +28,6 @@ public class ScorePanel : MonoBehaviour
         onePlayer.transform.SetParent(gameObject.transform);
         RectTransform hisRect = onePlayer.GetComponent<RectTransform>() as RectTransform;
         hisRect.localScale = Vector3.one;
-        onePlayer.GetComponent<PlayerResultPanel>().SetScorePanel(GameSettings.sortedPlayers[i]);
+        onePlayer.GetComponent<PlayerResultPanel>().SetScorePanel(GameSettings.instance.sortedPlayers[i]);
     }
 }

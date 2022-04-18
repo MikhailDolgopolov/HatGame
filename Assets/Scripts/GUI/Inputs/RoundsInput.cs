@@ -8,6 +8,6 @@ public class RoundsInput : MonoBehaviour {
     public TMP_InputField input;
     public void SetRounds()
     {
-        GameSettings.numberOfBigRounds = Int32.Parse(input.text);
+        GameSettings.instance.numberOfBigRounds = Int32.Parse(input.text);
     }
 }

@@ -11,7 +11,7 @@ public class CurrentPlayers : MonoBehaviour
     {
         giver = gameObject.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
         receiver = gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        GamePlay.OnNewRound += SetPlayers;
+        //GamePlay.OnNewRound += SetPlayers;
     }
     
     public void SetPlayers() {

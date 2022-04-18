@@ -27,8 +27,7 @@ public class AddWordButton : MonoBehaviour
         string trim = Regex.Replace(word, @"s", "");
         if (trim == "")
             return;
-        if (InternalHat.instance.AddWordToHat(word))
-            field.text = "";
-        else ToastMessages.ShowMessage("Такое слово уже есть в шляпе.");
+        
+        ToastMessages.ShowMessage("Такое слово уже есть в шляпе.");
     }
 }

@@ -12,8 +12,8 @@ public class Menu : MonoBehaviour
         {
             ToastMessages.ShowMessage("В шляпе недостаточно слов.");
             return;
-        }
-        SceneManager.LoadScene("GameSetup");*/
+        }*/
+        SceneManager.LoadScene("GameSetup");
        
     }
 
